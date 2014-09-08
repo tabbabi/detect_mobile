@@ -1,7 +1,8 @@
 detect_mobile
 =============
+drupal 8 module for detect mobile devices.
 
-This is a lightweight mobile detection based on the Mobile_Detect.php library.
+This is a lightweight mobile detection based on the [Mobile_Detect.php](http://mobiledetect.net/) library.
 
 PHP examples
 ------------
@@ -49,5 +50,10 @@ Twig Helper
 {% if is_device('iphone') %} 
 {% if is_ios() %}
 {% if is_android_os() %}
-```
 
+YO DO
+-----------
+
+```jinja
+
+manage mobile view and redirect to the mobile and table
