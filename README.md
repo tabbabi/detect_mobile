@@ -51,9 +51,8 @@ Twig Helper
 {% if is_ios() %}
 {% if is_android_os() %}
 
-YO DO
+TO DO
 -----------
 
 ```jinja
-
 manage mobile view and redirect to the mobile and table
