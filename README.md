@@ -50,9 +50,10 @@ Twig Helper
 {% if is_device('iphone') %} 
 {% if is_ios() %}
 {% if is_android_os() %}
+```
 
-TO DO
------------
+TODO
+---------
 
-```jinja
-manage mobile view and redirect to the mobile and table
+* redirect to mobile and tablet
+* Write tests
