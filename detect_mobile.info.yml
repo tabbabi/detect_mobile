@@ -1,0 +1,5 @@
+name: detect-mobile
+type: module
+description: Mobile detect
+core: 8.x
+package: Other

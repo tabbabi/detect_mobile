@@ -1,0 +1,8 @@
+services:
+    krs.mobile_detect:
+        class: Drupal\detect_mobile\Detect\MobileDetect
+    krs.mobile_detect.twig.extension:
+        class: Drupal\detect_mobile\Twig\MobileDetectExtension
+        arguments: ["@krs.mobile_detect"]
+        tags:
+            - { name: twig.extension }
