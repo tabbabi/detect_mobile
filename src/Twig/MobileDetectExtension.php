@@ -3,20 +3,25 @@ namespace Drupal\detect_mobile\Twig;
 
 use Drupal\detect_mobile\Detect\MobileDetect;
 use Drupal\Core\Template\TwigExtension;
+use Drupal\Core\Render\Renderer;
 /**
  * MobileDetectExtension class
  *
  * @author <marwen.tabbabi@gmail.com>
  */
-class MobileDetectExtension  extends TwigExtension{
-    
+class MobileDetectExtension  extends TwigExtension
+{
+    /**
+     * @var MobileDetect 
+     */
     protected $mobileDetector;
+    
     /**
      * Constructor
-     *
      */
-    public function __construct(MobileDetect $mobileDetector)
+    public function __construct(Renderer $render, MobileDetect $mobileDetector)
     {
+        parent::__construct($render);
         $this->mobileDetector = $mobileDetector;
     }
     
