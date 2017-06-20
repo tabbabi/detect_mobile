@@ -2,8 +2,6 @@
 namespace Drupal\detect_mobile\Twig;
 
 use Drupal\detect_mobile\Detect\MobileDetect;
-use Drupal\Core\Template\TwigExtension;
-use Drupal\Core\Render\Renderer;
 /**
  * MobileDetectExtension class
  *
@@ -37,7 +35,6 @@ class MobileDetectExtension extends \Twig_Extension
             'is_device' => new \Twig_Function_Function(array($this, 'isDevice')),
             'is_ios' => new \Twig_Function_Function(array($this, 'isIOS')),
             'is_android_os' => new \Twig_Function_Function(array($this, 'isAndroidOS')),
-
         );
     }
 
