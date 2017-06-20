@@ -9,7 +9,7 @@ PHP examples
 
 ### Check type device
 ``` php
-$mobileDetector = \Drupal::service('krs.mobile_detect');
+$mobileDetector = \Drupal::service('mobile_detect');
 $mobileDetector->isMobile();
 $mobileDetector->isTablet()
 ```

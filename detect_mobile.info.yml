@@ -1,5 +1,5 @@
-name: detect-mobile
+name: Detect Mobile
 type: module
-description: Mobile detect
-core: 8.x
-package: Other
+description: A wrapper around the "Mobile_Detect.php" library - Detects mobile devices using HTTP headers, proving helper functions to developers for templates.
+core: 8.3.3
+package: Layout
