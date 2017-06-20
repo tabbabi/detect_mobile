@@ -2,46 +2,42 @@
 namespace Drupal\detect_mobile\Twig;
 
 use Drupal\detect_mobile\Detect\MobileDetect;
-use Drupal\Core\Template\TwigExtension;
-use Drupal\Core\Render\Renderer;
 /**
  * MobileDetectExtension class
  *
  * @author <marwen.tabbabi@gmail.com>
  */
-class MobileDetectExtension  extends TwigExtension
+class MobileDetectExtension extends \Twig_Extension
 {
     /**
-     * @var MobileDetect 
+     * @var MobileDetect
      */
     protected $mobileDetector;
-    
-    /**
-     * Constructor
-     */
-    public function __construct(Renderer $render, MobileDetect $mobileDetector)
+
+  /**
+   * Constructor
+   * @param MobileDetect $mobileDetector
+   */
+    public function __construct(MobileDetect $mobileDetector)
     {
-        parent::__construct($render);
         $this->mobileDetector = $mobileDetector;
     }
-    
+
     /**
      * Get extension twig function
      * @return array
      */
     public function getFunctions()
     {
-        //$aa = new \Twig_SimpleFunction::class;
-        return array( 
+          return array(
             'is_mobile' => new \Twig_Function_Function(array($this, 'isMobile')),
             'is_tablet' => new \Twig_Function_Function(array($this, 'isTablet')),
             'is_device' => new \Twig_Function_Function(array($this, 'isDevice')),
             'is_ios' => new \Twig_Function_Function(array($this, 'isIOS')),
             'is_android_os' => new \Twig_Function_Function(array($this, 'isAndroidOS')),
-            
         );
     }
-    
+
     /**
      * Is mobile
      * @return boolean
@@ -59,7 +55,7 @@ class MobileDetectExtension  extends TwigExtension
     {
         return $this->mobileDetector->isTablet();
     }
-    
+
     /**
      * Is device
      * @param string $deviceName is[iPhone|BlackBerry|HTC|Nexus|Dell|Motorola|Samsung|Sony|Asus|Palm|Vertu|...]
@@ -72,7 +68,7 @@ class MobileDetectExtension  extends TwigExtension
 
         return $this->mobileDetector->$magicMethodName();
     }
-    
+
     /**
      * Is iOS
      * @return boolean
@@ -90,13 +86,13 @@ class MobileDetectExtension  extends TwigExtension
     {
         return $this->mobileDetector->isAndroidOS();
     }
-    
+
     /**
      * Extension name
      * @return string
      */
     public function getName()
     {
-        return 'krs.mobile_detect.twig.extension';
+        return 'mobile_detect.twig.extension';
     }
 }
