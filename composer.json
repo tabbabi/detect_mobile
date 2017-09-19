@@ -1,0 +1,7 @@
+{
+  "name": "tabbabi/detect_mobile",
+  "type": "drupal-module",
+  "description": "A lightweight Drupal 8 module for mobile detection based on the Mobile_Detect.php library",
+  "keywords": ["Drupal"],
+  "require": { }
+}
