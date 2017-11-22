@@ -3,5 +3,10 @@
   "type": "drupal-module",
   "description": "A lightweight Drupal 8 module for mobile detection based on the Mobile_Detect.php library",
   "keywords": ["Drupal"],
-  "require": { }
+  "require": {
+    "mobiledetect/mobiledetectlib": "^2.8"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7"
+  }
 }

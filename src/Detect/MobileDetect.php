@@ -1,10 +1,11 @@
 <?php
 namespace Drupal\detect_mobile\Detect;
-require_once 'Mobile_Detect.php';
+
+use Detection\MobileDetect as BaseMobileDetect;
 
 /**
  * MobileDetect class
  *
  * @author <marwen.tabbabi@gmail.com>
  */
-class MobileDetect extends \Mobile_Detect {}
+class MobileDetect extends BaseMobileDetect {}
