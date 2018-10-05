@@ -1,0 +1,7 @@
+detect_mobile.default_form:
+  path: '/admin/config/system/detect_mobile'
+  defaults:
+    _form: '\Drupal\detect_mobile\Form\DefaultForm'
+    _title: 'Detect Mobile Config Page'
+  requirements:
+    _permission: 'administer site configuration'

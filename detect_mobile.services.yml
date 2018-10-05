@@ -6,3 +6,12 @@ services:
         arguments: ["@mobile_detect"]
         tags:
             - { name: twig.extension }
+    mobile_detect.middleware:
+        class: Drupal\detect_mobile\Middleware\MobileDetectMiddleware
+        arguments: ["@mobile_detect.manager", "@mobile_detect" ]
+        tags:
+          - { name: http_middleware, priority: 400 }
+    mobile_detect.manager:
+      class: Drupal\detect_mobile\Middleware\MobileDetectManager
+      tags:
+        - { name: backend_overridable }

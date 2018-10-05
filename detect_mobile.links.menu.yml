@@ -1,0 +1,5 @@
+detect_mobile.admin_config_detect_mobile:
+  title: 'Detect Mobile Config Page'
+  parent: system.admin_config_system
+  route_name: detect_mobile.default_form
+  weight: -50
