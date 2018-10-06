@@ -4,8 +4,6 @@ namespace Drupal\detect_mobile\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Config\ConfigFactoryInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class DefaultForm.
@@ -13,57 +11,24 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class DefaultForm extends ConfigFormBase {
 
   /**
-   * The form id of this form.
-   *
-   * @var string
-   */
-  private $formId = 'default_form';
-
-  /**
-   * The Rate Limiter Configuration name.
-   *
-   * @var string
-   */
-  private $configName = 'detect_mobile.default_form.settings';
-
-  /**
-   * Constructs a SiteInformationForm object.
-   *
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
-   *   The configuration factory.
-   */
-  public function __construct(ConfigFactoryInterface $config_factory) {
-    parent::__construct($config_factory);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('config.factory')
-    );
-  }
-
-  /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return $this->formId;
+    return 'default_form';
   }
 
   /**
    * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
-    return [$this->configName];
+    return ['detect_mobile.default_form.settings'];
   }
 
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config($this->configName);
+    $config = $this->config('detect_mobile.default_form.settings');
     $form['desktop_domain'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Desktop Domain'),
@@ -99,7 +64,7 @@ class DefaultForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Display result.
     $values = $form_state->getValues();
-    $this->config($this->configName)
+    $this->config('detect_mobile.default_form.settings')
       ->set('desktop_domain', $values['desktop_domain'])
       ->set('mobile_domain', $values['mobile_domain'])
       ->save();
