@@ -25,6 +25,9 @@ class MobileDetectMiddleware implements HttpKernelInterface {
    */
   protected $manager;
 
+  /**
+   *
+   */
   public function __construct(HttpKernelInterface $http_kernel, MobileDetectManagerInterface $manager) {
     $this->httpKernel = $http_kernel;
     $this->manager = $manager;
@@ -44,8 +47,9 @@ class MobileDetectMiddleware implements HttpKernelInterface {
       return new RedirectResponse($req_sheme . '://' . $mobileDomain . $req_uri);
     }
     if (!empty($desktopDomain) && !$mobileDetector->isMobile() && $http_host !== $desktopDomain) {
-      return new RedirectResponse($req_sheme .'://' . $desktopDomain . $req_uri);
+      return new RedirectResponse($req_sheme . '://' . $desktopDomain . $req_uri);
     }
     return $this->httpKernel->handle($request, $type, $catch);
   }
+
 }

@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\detect_mobile\Middleware\MobileDetectManager.
- */
 
 namespace Drupal\detect_mobile\Middleware;
 

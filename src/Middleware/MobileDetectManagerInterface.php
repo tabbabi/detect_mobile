@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\detect_mobile\Middleware\MobileDetectManagerInterface.
- */
 
 namespace Drupal\detect_mobile\Middleware;
 
@@ -13,13 +9,14 @@ namespace Drupal\detect_mobile\Middleware;
  */
 interface MobileDetectManagerInterface {
 
-    /**
-     * @return mixed
-     */
-    public function getMobile();
+  /**
+   * @return mixed
+   */
+  public function getMobile();
 
-    /**
-     * @return mixed
-     */
-    public function getDesktop();
+  /**
+   * @return mixed
+   */
+  public function getDesktop();
+
 }
