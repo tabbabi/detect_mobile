@@ -15,3 +15,7 @@ services:
       class: Drupal\detect_mobile\Middleware\MobileDetectManager
       tags:
         - { name: backend_overridable }
+    mobile_detect.subscriber:
+      class: Drupal\detect_mobile\EventSubscriber\MobileDetectSubscriber
+      tags:
+        - { name: event_subscriber }
