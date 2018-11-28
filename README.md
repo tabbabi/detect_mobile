@@ -52,8 +52,14 @@ Twig Helper
 {% if is_android_os() %}
 ```
 
+Redirect to mobile domain
+-------------------------------------------------
+To enable redirect use the configuration form here /admin/config/system/detect_mobile
+
+enter the domain for the desktop & mobile without 'http' for example 'example.com'
+
 TODO
 ---------
 
-* redirect to mobile and tablet
+* ~~redirect to mobile and tablet~~
 * Write tests

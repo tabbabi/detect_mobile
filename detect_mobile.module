@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains detect_mobile.module
+ * Contains detect_mobile.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -10,9 +10,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-
-function detect_mobile_help($route_name, RouteMatchInterface $route_match)
-{
+function detect_mobile_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     // Main module help for the detect_mobile module.
     case 'help.page.detect_mobile':
@@ -20,6 +18,7 @@ function detect_mobile_help($route_name, RouteMatchInterface $route_match)
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('Mobile detect') . '</p>';
       return $output;
+
     break;
   }
 }
@@ -27,10 +26,17 @@ function detect_mobile_help($route_name, RouteMatchInterface $route_match)
 /**
  * Implements hook_theme().
  */
-
-function detect_mobile_theme()
-{
-  $theme = [];
-
-  return $theme;
+function detect_mobile_theme() {
+  return [
+    'detect_mobile_block' => [
+      'variables' => [
+        'title' => NULL,
+        'description' => NULL,
+        'mobile_d' => NULL,
+        'desktop_d' => NULL,
+        'http_host' => NULL,
+      ],
+      'template' => 'block--detect-mobile',
+    ],
+  ];
 }

@@ -26,7 +26,10 @@ class MobileDetectMiddleware implements HttpKernelInterface {
   protected $manager;
 
   /**
+   * Class Constructor.
    *
+   * @param \Symfony\Component\HttpKernel\HttpKernelInterface $http_kernel
+   * The decorated kernel.
    */
   public function __construct(HttpKernelInterface $http_kernel, MobileDetectManagerInterface $manager) {
     $this->httpKernel = $http_kernel;
@@ -43,10 +46,16 @@ class MobileDetectMiddleware implements HttpKernelInterface {
     $http_host = $request->getHttpHost();
     $req_uri = $request->getRequestUri();
     $req_sheme = $request->getScheme();
-    if (!empty($mobileDomain) && $mobileDetector->isMobile() && $http_host !== $mobileDomain) {
+    $version = $request->query->get('version');
+    $site_version = $request->cookies->get('site_version');
+    if (!empty($mobileDomain) && $mobileDetector->isMobile()
+     && $http_host !== $mobileDomain && $version !== 'desktop'
+     && $site_version !== 'desktop') {
       return new RedirectResponse($req_sheme . '://' . $mobileDomain . $req_uri);
     }
-    if (!empty($desktopDomain) && !$mobileDetector->isMobile() && $http_host !== $desktopDomain) {
+    if (!empty($desktopDomain) && !$mobileDetector->isMobile()
+     && $http_host !== $desktopDomain && $version !== 'mobile'
+     && $site_version !== 'mobile') {
       return new RedirectResponse($req_sheme . '://' . $desktopDomain . $req_uri);
     }
     return $this->httpKernel->handle($request, $type, $catch);
