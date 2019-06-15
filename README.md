@@ -63,3 +63,36 @@ TODO
 
 * ~~redirect to mobile and tablet~~
 * Write tests
+
+
+HOW TO INSTALL
+-------------------------------------------------
+
+With composer:
+
+1) add the git package to ```composer.json```:
+``` json
+    "repositories": [
+        ...
+        {
+            "type": "package",
+            "package": {
+                "name": "tabbabi/detect_mobile",
+                "version": "dev-master",
+                "type":"drupal-module",
+                "source": {
+                    "url": "https://github.com/tabbabi/detect_mobile.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+        ...
+    ]
+```
+2) require the dependencies:
+``` shell
+composer require mobiledetect/mobiledetectlib
+composer require tabbabi/detect_mobile
+```
+3) enable the module
